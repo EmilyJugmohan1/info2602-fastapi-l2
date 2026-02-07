@@ -9,3 +9,14 @@ class User(SQLModel, table=True):
     username:str = Field(index=True, unique=True)
     email:str = Field(index=True, unique=True)
     password:str
+
+    def __init__(self, username: str, email: str, password: str):
+        self.username = username
+        self.email = email
+        self.set_password(password)
+
+    def set_password(self, password: str):
+        self.password = password_hash.hash(password)
+
+    def __str__(self) -> str:
+        return f"(User id={self.id}, username={self.username} ,email={self.email})"
