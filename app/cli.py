@@ -111,3 +111,5 @@ def delete_user(username: str = typer.Argument(..., help="Username of the user t
 
 if __name__ == "__main__":
     cli()
+
+#test
